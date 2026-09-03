@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Mathematics - Handwritten Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            font-family: 'Patrick Hand', 'Segoe UI Symbol', cursive;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .sheet {
+            background: 
+                linear-gradient(transparent 0%, transparent calc(100% - 1px), #e8e8e8 100%),
+                repeating-linear-gradient(
+                    transparent,
+                    transparent 31px,
+                    #d4d4d4 31px,
+                    #d4d4d4 32px
+                ),
+                linear-gradient(90deg, transparent 0%, transparent 80px, #ffcccb 80px, #ffcccb 82px, transparent 82px),
+                #fafafa;
+            max-width: 850px;
+            margin: 0 auto 40px;
+            padding: 60px 100px 60px 100px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            position: relative;
+            color: #1a1a2e;
+            font-size: 19px;
+            line-height: 32px;
+        }
+
+        h1 {
+            font-family: 'Kalam', cursive;
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #16213e;
+            text-decoration: underline;
+            text-decoration-color: #e94560;
+            text-decoration-thickness: 3px;
+        }
+
+        h2 {
+            font-family: 'Kalam', cursive;
+            font-size: 32px;
+            margin: 35px 0 20px 0;
+            color: #0f3460;
+            background: #fff3cd;
+            padding: 12px 20px;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            border: 2px solid #f39c12;
+            display: inline-block;
+            transform: rotate(-0.7deg);
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            font-family: 'Kalam', cursive;
+            font-size: 24px;
+            margin: 25px 0 12px 0;
+            color: #c0392b;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-indent: 30px;
+        }
+
+        .tip {
+            background: #d4edda;
+            border: 2px dashed #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transform: rotate(0.5deg);
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .tip::before {
+            content: "💡 Exam Tip: ";
+            font-weight: bold;
+            color: #155724;
+        }
+
+        .trap {
+            background: #f8d7da;
+            border: 2px dashed #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transform: rotate(-0.5deg);
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .trap::before {
+            content: "⚠️ Common Trap: ";
+            font-weight: bold;
+            color: #721c24;
+        }
+
+        ul {
+            margin: 15px 0 15px 40px;
+            list-style-type: none;
+        }
+
+        ul li::before {
+            content: "→ ";
+            color: #e94560;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .formula {
+            background: #e3f2fd;
+            padding: 10px 15px;
+            margin: 15px 20px;
+            border-left: 4px solid #2196f3;
+            font-size: 18px;
+            font-family: 'Patrick Hand', 'Cambria Math', monospace;
+        }
+
+        .example {
+            background: #fff8e1;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: 1px solid #ffc107;
+        }
+
+        .example::before {
+            content: "📝 Example: ";
+            font-weight: bold;
+            color: #f57c00;
+        }
+
+        strong {
+            color: #c0392b;
+            text-decoration: underline;
+            text-decoration-color: #e74c3c;
+            text-decoration-style: wavy;
+            text-decoration-thickness: 1px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .sheet {
+                box-shadow: none;
+                page-break-after: always;
+                margin: 0;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SET THEORY -->
+    <div class="sheet">
+        <h1>📚 Discrete Mathematics Notes</h1>
+        <h2>Set Theory Fundamentals</h2>
+        
+        <h3>What is a Set?</h3>
+        <p>A <strong>set</strong> is a well-defined collection of distinct objects. These objects are called <strong>elements</strong> or members. Sets are fundamental building blocks in mathematics.</p>
+        
+        <div class="example">
+A = {1, 2, 3, 4, 5} — A set of numbers
+B = {red, blue, green} — A set of colors
+C = {x | x is an even number less than 10} — Set-builder notation</div>
+
+        <div class="tip">Notation matters! Use ∈ for "element of" (3 ∈ A) and ∉ for "not an element" (7 ∉ A)</div>
+
+        <h3>Venn Diagrams</h3>
+        <p>Visual representations showing relationships between sets using overlapping circles. Perfect for understanding unions, intersections, and complements at a glance.</p>
+
+        <h3>Subsets</h3>
+        <p>A set A is a <strong>subset</strong> of B (written A ⊆ B) if every element of A is also in B.</p>
+        <ul>
+            <li><strong>Proper subset:</strong> A ⊂ B means A ⊆ B and A ≠ B</li>
+            <li><strong>Empty set:</strong> ∅ is a subset of every set</li>
+            <li>Every set is a subset of itself</li>
+        </ul>
+
+        <div class="trap">Don't confuse ∈ (element of) with ⊆ (subset of)! {3} ⊆ {1,2,3} but 3 ∈ {1,2,3}</div>
+
+        <h3>Cardinality (Size of a Set)</h3>
+        <p>The <strong>cardinality</strong> |A| is the number of elements in set A.</p>
+        <ul>
+            <li>|{1, 2, 3}| = 3</li>
+            <li>|∅| = 0</li>
+            <li>Finite sets have countable cardinality</li>
+            <li>Infinite sets (ℕ, ℝ) have infinite cardinality</li>
+        </ul>
+
+        <h3>Power Set</h3>
+        <p>The <strong>power set</strong> P(A) or 2^A is the set of all subsets of A.</p>
+        <div class="formula">If |A| = n, then |P(A)| = 2^n</div>
+        <div class="example">
+If A = {1, 2}, then P(A) = {∅, {1}, {2}, {1,2}}
+Here |A| = 2, so |P(A)| = 2² = 4 ✓</div>
+
+        <div class="tip">Power sets grow exponentially! A set with 5 elements has 32 subsets.</div>
+    </div>
+
+    <!-- CARTESIAN PRODUCTS & SET OPERATIONS -->
+    <div class="sheet">
+        <h2>Cartesian Products</h2>
+        <p>The <strong>Cartesian product</strong> A × B is the set of all ordered pairs (a, b) where a ∈ A and b ∈ B.</p>
+        <div class="formula">A × B = {(a, b) | a ∈ A and b ∈ B}</div>
+        <div class="example">
+A = {1, 2}, B = {x, y}
+A × B = {(1,x), (1,y), (2,x), (2,y)}
+|A × B| = |A| × |B| = 2 × 2 = 4</div>
+
+        <div class="trap">Order matters! A × B ≠ B × A in general. (1,x) ≠ (x,1)</div>
+
+        <h2>Set Operations</h2>
+        
+        <h3>Union (A ∪ B)</h3>
+        <p>All elements in A or B or both.</p>
+        <div class="formula">A ∪ B = {x | x ∈ A or x ∈ B}</div>
+
+        <h3>Intersection (A ∩ B)</h3>
+        <p>Elements common to both A and B.</p>
+        <div class="formula">A ∩ B = {x | x ∈ A and x ∈ B}</div>
+
+        <h3>Difference (A − B)</h3>
+        <p>Elements in A but not in B.</p>
+        <div class="formula">A − B = {x | x ∈ A and x ∉ B}</div>
+
+        <h3>Complement (A' or Ā)</h3>
+        <p>All elements in the universal set U that are not in A.</p>
+        <div class="formula">A' = U − A = {x | x ∈ U and x ∉ A}</div>
+
+        <div class="example">
+U = {1,2,3,4,5,6}, A = {1,2,3}, B = {3,4,5}
+A ∪ B = {1,2,3,4,5}
+A ∩ B = {3}
+A − B = {1,2}
+A' = {4,5,6}</div>
+
+        <h3>Disjoint Sets</h3>
+        <p>Two sets are <strong>disjoint</strong> if A ∩ B = ∅ (no common elements).</p>
+
+        <div class="tip">Draw Venn diagrams for complex operations! They prevent careless mistakes.</div>
+    </div>
+
+    <!-- SET IDENTITIES -->
+    <div class="sheet">
+        <h2>Set Identities (Must Know!)</h2>
+        <p>These are your proof weapons. Memorize them!</p>
+
+        <h3>Fundamental Laws</h3>
+        <ul>
+            <li><strong>Identity Laws:</strong> A ∪ ∅ = A, A ∩ U = A</li>
+            <li><strong>Domination Laws:</strong> A ∪ U = U, A ∩ ∅ = ∅</li>
+            <li><strong>Idempotent Laws:</strong> A ∪ A = A, A ∩ A = A</li>
+            <li><strong>Complement Laws:</strong> A ∪ A' = U, A ∩ A' = ∅</li>
+            <li><strong>Double Complement:</strong> (A')' = A</li>
+        </ul>
+
+        <h3>Commutative & Associative</h3>
+        <ul>
+            <li><strong>Commutative:</strong> A ∪ B = B ∪ A, A ∩ B = B ∩ A</li>
+            <li><strong>Associative:</strong> (A ∪ B) ∪ C = A ∪ (B ∪ C)</li>
+            <li>Same for intersection</li>
+        </ul>
+
+        <h3>Distributive Laws</h3>
+        <div class="formula">
+A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)
+A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</div>
+
+        <div class="tip">Think of ∪ like addition and ∩ like multiplication. Distributive laws work similarly!</div>
+
+        <h3>De Morgan's Laws ⭐ CRITICAL</h3>
+        <div class="formula">
+(A ∪ B)' = A' ∩ B'
+(A ∩ B)' = A' ∪ B'</div>
+
+        <div class="trap">Students often flip these wrong! "Complement flips union to intersection and vice versa"</div>
+
+        <h3>Absorption Laws</h3>
+        <ul>
+            <li>A ∪ (A ∩ B) = A</li>
+            <li>A ∩ (A ∪ B) = A</li>
+        </ul>
+
+        <h2>Generalized Unions & Intersections</h2>
+        <p>When dealing with a collection of sets A₁, A₂, A₃, ..., Aₙ:</p>
+        
+        <div class="formula">
+⋃ᵢ₌₁ⁿ Aᵢ = A₁ ∪ A₂ ∪ ... ∪ Aₙ (all elements in at least one set)
+
+⋂ᵢ₌₁ⁿ Aᵢ = A₁ ∩ A₂ ∩ ... ∩ Aₙ (elements in all sets)</div>
+
+        <div class="example">
+A₁ = {1,2}, A₂ = {2,3}, A₃ = {2,4}
+⋃ Aᵢ = {1,2,3,4}
+⋂ Aᵢ = {2}</div>
+
+        <h3>Cardinality of Unions</h3>
+        <div class="formula">
+|A ∪ B| = |A| + |B| − |A ∩ B|</div>
+
+        <p>For three sets:</p>
+        <div class="formula">
+|A ∪ B ∪ C| = |A| + |B| + |C| − |A ∩ B| − |A ∩ C| − |B ∩ C| + |A ∩ B ∩ C|</div>
+
+        <div class="tip">This is inclusion-exclusion principle. Add individual sets, subtract pairwise overlaps, add back triple overlap!</div>
+    </div>
+
+    <!-- FUNCTIONS -->
+    <div class="sheet">
+        <h2>Functions</h2>
+        
+        <h3>Definition</h3>
+        <p>A <strong>function</strong> f from set A to set B (written f: A → B) assigns exactly one element of B to each element of A.</p>
+        <ul>
+            <li><strong>Domain:</strong> Set A (input values)</li>
+            <li><strong>Codomain:</strong> Set B (possible output values)</li>
+            <li><strong>Range:</strong> Actual outputs {f(a) | a ∈ A} ⊆ B</li>
+        </ul>
+
+        <div class="trap">Range ≠ Codomain! Range is subset of codomain containing only actual outputs.</div>
+
+        <div class="example">
+f: {1,2,3} → {a,b,c,d} where f(1)=a, f(2)=a, f(3)=c
+Domain = {1,2,3}
+Codomain = {a,b,c,d}
+Range = {a,c}</div>
+
+        <h3>Types of Functions</h3>
+        
+        <h3>1. Injective (One-to-One) 💉</h3>
+        <p>Different inputs produce different outputs.</p>
+        <div class="formula">f is injective if f(x₁) = f(x₂) implies x₁ = x₂</div>
+        <p>Equivalently: if x₁ ≠ x₂, then f(x₁) ≠ f(x₂)</p>
+        
+        <div class="example">
+f(x) = 2x is injective (no two numbers give same double)
+f(x) = x² is NOT injective (f(-2) = f(2) = 4)</div>
+
+        <div class="tip">Horizontal line test! If any horizontal line crosses graph twice, not injective.</div>
+
+        <h3>2. Surjective (Onto) 📤</h3>
+        <p>Every element in codomain is an output (range = codomain).</p>
+        <div class="formula">f is surjective if for every b ∈ B, there exists a ∈ A such that f(a) = b</div>
+
+        <div class="example">
+f: ℝ → ℝ, f(x) = 2x is surjective (every real number is double of something)
+f: ℝ → ℝ, f(x) = x² is NOT surjective (negative numbers never appear)</div>
+
+        <h3>3. Bijective (One-to-One Correspondence) ✨</h3>
+        <p>Both injective AND surjective. Perfect pairing between domain and codomain!</p>
+        <ul>
+            <li>Every element in codomain used exactly once</li>
+            <li>Bijections are invertible</li>
+            <li>|A| = |B| if bijection exists</li>
+        </ul>
+
+        <div class="tip">To prove bijection: show it's both injective (different inputs → different outputs) and surjective (all codomain covered)</div>
+    </div>
+
+    <!-- INVERSE & COMPOSITION -->
+    <div class="sheet">
+        <h2>Inverse Functions</h2>
+        <p>If f: A → B is bijective, then <strong>inverse function</strong> f⁻¹: B → A exists.</p>
+        
+        <div class="formula">
+f⁻¹(b) = a if and only if f(a) = b
+f⁻¹(f(a)) = a and f(f⁻¹(b)) = b</div>
+
+        <div class="trap">Only bijective functions have inverses! Check both injective and surjective first.</div>
+
+        <div class="example">
+f(x) = 3x + 2 is bijective on ℝ
+To find inverse: y = 3x + 2 → x = (y-2)/3
+Therefore f⁻¹(x) = (x-2)/3
+Check: f⁻¹(f(5)) = f⁻¹(17) = 15/3 = 5 ✓</div>
+
+        <h2>Composition of Functions</h2>
+        <p>Combining functions: (g ∘ f)(x) = g(f(x))</p>
+        <p>Read right to left: "g composed with f" means apply f first, then g.</p>
+
+        <div class="formula">
+If f: A → B and g: B → C, then g ∘ f: A → C</div>
+
+        <div class="example">
+f(x) = x + 1, g(x) = 2x
+(g ∘ f)(x) = g(f(x)) = g(x+1) = 2(x+1) = 2x + 2
+(f ∘ g)(x) = f(g(x)) = f(2x) = 2x + 1
+Note: g ∘ f ≠ f ∘ g in general!</div>
+
+        <h3>Properties of Composition</h3>
+        <ul>
+            <li><strong>Associative:</strong> (h ∘ g) ∘ f = h ∘ (g ∘ f)</li>
+            <li><strong>Not commutative:</strong> g ∘ f ≠ f ∘ g usually</li>
+            <li>If f and g are injective, g ∘ f is injective</li>
+            <li>If f and g are surjective, g ∘ f is surjective</li>
+            <li>If f and g are bijective, g ∘ f is bijective</li>
+        </ul>
+
+        <div class="tip">For inverses of compositions: (g ∘ f)⁻¹ = f⁻¹ ∘ g⁻¹ (reverse order!)</div>
+
+        <h3>Identity Function</h3>
+        <p>The identity function Iₐ: A → A is defined by Iₐ(x) = x for all x ∈ A.</p>
+        <ul>
+            <li>f ∘ Iₐ = f</li>
+            <li>Iв ∘ f = f</li>
+            <li>f ∘ f⁻¹ = Iв and f⁻¹ ∘ f = Iₐ</li>
+        </ul>
+    </div>
+
+    <!-- RELATIONS -->
+    <div class="sheet">
+        <h2>Relations</h2>
+        
+        <h3>Binary Relations</h3>
+        <p>A <strong>binary relation</strong> R from A to B is a subset of A × B.</p>
+        <p>If (a,b) ∈ R, we write aRb (a is related to b).</p>
+
+        <div class="example">
+A = {1,2,3}, B = {x,y}
+R = {(1,x), (2,x), (2,y)} is a relation from A to B
+We can say: 1Rx, 2Rx, 2Ry</div>
+
+        <h3>Relations on a Set</h3>
+        <p>A relation on set A is a subset of A × A (relates elements to themselves).</p>
+
+        <h3>Properties of Relations</h3>
+
+        <h3>1. Reflexive</h3>
+        <p>Every element is related to itself.</p>
+        <div class="formula">∀a ∈ A: (a,a) ∈ R</div>
+        <div class="example">"≤" on integers is reflexive (a ≤ a always)</div>
+
+        <h3>2. Symmetric</h3>
+        <p>If aRb, then bRa.</p>
+        <div class="formula">∀a,b ∈ A: (a,b) ∈ R → (b,a) ∈ R</div>
+        <div class="example">"is sibling of" is symmetric</div>
+
+        <h3>3. Antisymmetric</h3>
+        <p>If aRb and bRa, then a = b.</p>
+        <div class="formula">∀a,b ∈ A: [(a,b) ∈ R and (b,a) ∈ R] → a = b</div>
+        <div class="example">"≤" is antisymmetric (if a ≤ b and b ≤ a, then a = b)</div>
+
+        <div class="trap">Antisymmetric ≠ "not symmetric"! A relation can be both, neither, or one but not the other.</div>
+
+        <h3>4. Transitive</h3>
+        <p>If aRb and bRc, then aRc.</p>
+        <div class="formula">∀a,b,c ∈ A: [(a,b) ∈ R and (b,c) ∈ R] → (a,c) ∈ R</div>
+        <div class="example">"<" is transitive (if a < b and b < c, then a < c)</div>
+
+        <div class="tip">Check all four properties systematically! Missing one changes everything.</div>
+    </div>
+
+    <!-- N-ARY RELATIONS & REPRESENTATION -->
+    <div class="sheet">
+        <h2>n-ary Relations</h2>
+        <p>An <strong>n-ary relation</strong> on sets A₁, A₂, ..., Aₙ is a subset of A₁ × A₂ × ... × Aₙ.</p>
+        <ul>
+            <li>Binary relation: n = 2</li>
+            <li>Ternary relation: n = 3</li>
+            <li>Useful in databases (tables are n-ary relations!)</li>
+        </ul>
+
+        <div class="example">
+Student database relation R ⊆ Names × IDs × Grades
+("Alice", 101, "A"), ("Bob", 102, "B+") ∈ R</div>
+
+        <h2>Representing Relations</h2>
+
+        <h3>1. Matrix Representation</h3>
+        <p>For relation R on finite sets, create matrix M where Mᵢⱼ = 1 if (aᵢ,aⱼ) ∈ R, else 0.</p>
+
+        <div class="example">
+A = {1,2,3}, R = {(1,1), (1,2), (2,3), (3,1)}
+
+    1  2  3
+1 [ 1  1  0 ]
+2 [ 0  0  1 ]
+3 [ 1  0  0 ]</div>
+
+        <div class="tip">Reflexive → diagonal all 1s. Symmetric → matrix equals its transpose!</div>
+
+        <h3>2. Directed Graph (Digraph)</h3>
+        <p>Vertices represent elements, directed edges represent ordered pairs in R.</p>
+        <ul>
+            <li>Vertex for each element of A</li>
+            <li>Arrow from a to b if (a,b) ∈ R</li>
+            <li>Loop at vertex a if (a,a) ∈ R</li>
+        </ul>
+
+        <div class="tip">Reflexive → loop at every vertex. Symmetric → arrows go both ways. Transitive → if path exists, direct arrow exists.</div>
+
+        <h2>Closures of Relations</h2>
+        <p>The <strong>closure</strong> of R with respect to property P is the smallest relation containing R that has property P.</p>
+
+        <h3>Reflexive Closure</h3>
+        <p>Add all pairs (a,a) for a ∈ A.</p>
+        <div class="formula">r(R) = R ∪ {(a,a) | a ∈ A}</div>
+
+        <h3>Symmetric Closure</h3>
+        <p>Add (b,a) whenever (a,b) ∈ R.</p>
+        <div class="formula">s(R) = R ∪ {(b,a) | (a,b) ∈ R}</div>
+
+        <h3>Transitive Closure</h3>
+        <p>Add (a,c) whenever path from a to c exists.</p>
+        <p>Computed using <strong>Warshall's Algorithm</strong> or by R ∪ R² ∪ R³ ∪ ...</p>
+
+        <div class="example">
+R = {(1,2), (2,3)}
+Transitive closure: t(R) = {(1,2), (2,3), (1,3)}
+(Added (1,3) because of path 1→2→3)</div>
+
+        <div class="tip">For transitive closure on n elements, need at most R ∪ R² ∪ ... ∪ Rⁿ</div>
+    </div>
+
+    <!-- EQUIVALENCE RELATIONS -->
+    <div class="sheet">
+        <h2>Equivalence Relations ⭐</h2>
+        <p>A relation R on A is an <strong>equivalence relation</strong> if it is:</p>
+        <ul>
+            <li><strong>Reflexive:</strong> aRa for all a</li>
+            <li><strong>Symmetric:</strong> aRb implies bRa</li>
+            <li><strong>Transitive:</strong> aRb and bRc implies aRc</li>
+        </ul>
+
+        <div class="example">
+"has same birthday as" is equivalence relation
+✓ Reflexive: you have same birthday as yourself
+✓ Symmetric: if you share birthday with Bob, Bob shares with you
+✓ Transitive: if A and B share, B and C share, then A and C share</div>
+
+        <div class="example">
+Congruence modulo n: a ≡ b (mod n) if n divides (a-b)
+This is an equivalence relation!
+Example: 7 ≡ 12 (mod 5) because 5 divides (12-7)</div>
+
+        <h3>Equivalence Classes</h3>
+        <p>The <strong>equivalence class</strong> of element a is:</p>
+        <div class="formula">[a] = {b ∈ A | aRb}</div>
+        <p>All elements related to a.</p>
+
+        <div class="example">
+For ≡ (mod 3) on ℤ:
+[0] = {..., -6, -3, 0, 3, 6, 9, ...} (multiples of 3)
+[1] = {..., -5, -2, 1, 4, 7, 10, ...} (one more than multiple of 3)
+[2] = {..., -4, -1, 2, 5, 8, 11, ...} (two more than multiple of 3)</div>
+
+        <h3>Properties of Equivalence Classes</h3>
+        <ul>
+            <li>Every element belongs to exactly one equivalence class</li>
+            <li>Either [a] = [b] or [a] ∩ [b] = ∅</li>
+            <li>Union of all equivalence classes = A</li>
+            <li>Equivalence classes are <strong>disjoint</strong></li>
+        </ul>
+
+        <div class="tip">If aRb, then [a] = [b]. If a not related to b, classes are completely separate!</div>
+
+        <h2>Partitions</h2>
+        <p>A <strong>partition</strong> of set A is a collection of nonempty, disjoint subsets whose union is A.</p>
+
+        <div class="formula">
+A₁, A₂, ..., Aₙ partition A if:
+• Aᵢ ≠ ∅ for all i
+• Aᵢ ∩ Aⱼ = ∅ for i ≠ j
+• A₁ ∪ A₂ ∪ ... ∪ Aₙ = A</div>
+
+        <h3>Key Theorem</h3>
+        <div class="tip">⚡ Equivalence classes of an equivalence relation form a partition of the set!</div>
+        <div class="tip">⚡ Every partition defines an equivalence relation!</div>
+
+        <div class="example">
+A = {1,2,3,4,5,6}
+Partition: {{1,4}, {2,5}, {3,6}}
+Defines relation: 1R4, 4R1, 2R5, 5R2, 3R6, 6R3, plus reflexive pairs</div>
+
+        <div class="trap">Don't forget reflexive pairs when converting partition to relation!</div>
+    </div>
+
+    <!-- PARTIAL ORDERING -->
+    <div class="sheet">
+        <h2>Partial Ordering (Poset)</h2>
+        <p>A relation R on set A is a <strong>partial order</strong> if it is:</p>
+        <ul>
+            <li><strong>Reflexive:</strong> aRa for all a</li>
+            <li><strong>Antisymmetric:</strong> aRb and bRa implies a = b</li>
+            <li><strong>Transitive:</strong> aRb and bRc implies aRc</li>
+        </ul>
+
+        <p>The set A with partial order R is called a <strong>poset</strong> (A, R).</p>
+
+        <div class="example">
+(ℕ, ≤) is a poset
+✓ Reflexive: n ≤ n
+✓ Antisymmetric: if a ≤ b and b ≤ a, then a = b
+✓ Transitive: if a ≤ b and b ≤ c, then a ≤ c</div>
+
+        <div class="example">
+(P(S), ⊆) — power set with subset relation is a poset
+For S = {1,2}: ({}, {{1}, {2}, {1,2}}, ⊆)</div>
+
+        <h3>Comparable vs Incomparable</h3>
+        <p>Elements a and b are <strong>comparable</strong> if aRb or bRa.</p>
+        <p>Elements are <strong>incomparable</strong> if neither aRb nor bRa.</p>
+
+        <div class="example">
+In (P({1,2}), ⊆):
+{1} and {1,2} are comparable: {1} ⊆ {1,2}
+{1} and {2} are incomparable: neither is subset of other</div>
+
+        <h3>Total Order (Linear Order)</h3>
+        <p>A partial order where every pair is comparable.</p>
+        <div class="tip">(ℕ, ≤) is total order. (P(S), ⊆) is NOT total order (incomparable elements exist)</div>
+
+        <h3>Special Elements in Posets</h3>
+
+        <p><strong>Maximal element:</strong> No element greater than it</p>
+        <p><strong>Minimal element:</strong> No element less than it</p>
+        <p><strong>Greatest element (maximum):</strong> Greater than or equal to all elements</p>
+        <p><strong>Least element (minimum):</strong> Less than or equal to all elements</p>
+
+        <div class="trap">Maximal ≠ maximum! Poset can have multiple maximal elements but at most one maximum.</div>
+
+        <div class="example">
+Consider divisibility on {2, 3, 4, 6}:
+Minimal elements: 2, 3 (no smaller divisors in set)
+No minimum (2 and 3 are incomparable)
+Maximal elements: 4, 6 (nothing in set divides them except themselves)
+No maximum (4 and 6 are incomparable)</div>
+
+        <p><strong>Upper bound:</strong> Element ≥ all elements in subset</p>
+        <p><strong>Lower bound:</strong> Element ≤ all elements in subset</p>
+        <p><strong>Least upper bound (supremum/lub):</strong> Smallest upper bound</p>
+        <p><strong>Greatest lower bound (infimum/glb):</strong> Largest lower bound</p>
+    </div>
+
+    <!-- HASSE DIAGRAMS -->
+    <div class="sheet">
+        <h2>Hasse Diagrams</h2>
+        <p>A <strong>Hasse diagram</strong> is a visual representation of a finite poset, showing ordering relationships without redundancy.</p>
+
+        <h3>Construction Rules</h3>
+        <ul>
+            <li>Draw each element as a vertex</li>
+            <li>Place larger elements higher than smaller</li>
+            <li>Draw edge from a to b if a < b and no element between them</li>
+            <li><strong>Remove:</strong> reflexive loops, transitive redundancies, arrow directions (implied upward)</li>
+        </ul>
+
+        <div class="tip">Think "family tree" — draw only direct parent-child relationships, not grandparents!</div>
+
+        <div class="example">
+Poset ({1,2,3,6}, divides):
+Hasse diagram structure:
+         6
+        / \
+       2   3
+        \ /
+         1
+(1 divides everything, 6 is divided by everything in set)</div>
+
+        <div class="example">
+Power set P({a,b}) with ⊆:
+      {a,b}
+      /   \
+    {a}   {b}
+      \   /
+        ∅
+Perfectly symmetric!</div>
+
+        <h3>Reading Hasse Diagrams</h3>
+        <ul>
+            <li><strong>Path upward:</strong> means less than or equal to (≤)</li>
+            <li><strong>Maximal elements:</strong> top vertices (no vertex above)</li>
+            <li><strong>Minimal elements:</strong> bottom vertices (no vertex below)</li>
+            <li><strong>Maximum:</strong> single top vertex connected to all below (if exists)</li>
+            <li><strong>Minimum:</strong> single bottom vertex connected to all above (if exists)</li>
+        </ul>
+
+        <div class="tip">To check if a ≤ b: trace upward path from a to b. If path exists, a ≤ b!</div>
+
+        <h3>Chains and Antichains</h3>
+        <p><strong>Chain:</strong> Subset where all elements are comparable (forms vertical line in Hasse)</p>
+        <p><strong>Antichain:</strong> Subset where no two elements are comparable (forms horizontal level)</p>
+
+        <div class="example">
+In divisibility poset {1,2,3,6}:
+Chain: {1, 2, 6} (1|2|6)
+Antichain: {2, 3} (neither divides other)</div>
+
+        <div class="tip">Maximum chain length = height of Hasse diagram. Maximum antichain = width of widest level.</div>
+    </div>
+
+    <!-- TOPOLOGICAL SORT -->
+    <div class="sheet">
+        <h2>Topological Sort</h2>
+        <p>A <strong>topological sort</strong> is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every edge (u,v), u comes before v.</p>
+
+        <h3>When Does It Exist?</h3>
+        <p>Topological sort exists <strong>if and only if</strong> the graph is a DAG (no cycles).</p>
+        
+        <div class="trap">If graph has cycle, no topological sort possible! Check for cycles first.</div>
+
+        <h3>Algorithm (Kahn's Method)</h3>
+        <ul>
+            <li>Find a vertex with no incoming edges (in-degree = 0)</li>
+            <li>Add it to the sorted list</li>
+            <li>Remove that vertex and its outgoing edges</li>
+            <li>Repeat until all vertices processed</li>
+        </ul>
+
+        <div class="example">
+Tasks with dependencies:
+A → B (A before B)
+A → C
+B → D
+C → D
+
+Step-by-step:
+1. A has in-degree 0 → output A, remove A
+2. B and C now have in-degree 0 → output B (or C)
+3. Output C (or B)
+4. D now has in-degree 0 → output D
+
+Valid sorts: A,B,C,D or A,C,B,D</div>
+
+        <div class="tip">Multiple valid topological sorts usually exist! Any order respecting dependencies is valid.</div>
+
+        <h3>DFS-Based Method</h3>
+        <ul>
+            <li>Perform DFS on graph</li>
+            <li>When backtracking from vertex, add to front of list</li>
+            <li>Vertices with later finish times come first in sort</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+            <li><strong>Course prerequisites:</strong> order to take classes</li>
+            <li><strong>Build systems:</strong> compilation order</li>
+            <li><strong>Task scheduling:</strong> order tasks with dependencies</li>
+            <li><strong>Makefile execution:</strong> determine build order</li>
+        </ul>
+
+        <div class="example">
+Course prerequisites:
+Math101 → Math201 → Math301
+Math101 → CS101 → CS201
+
+Possible topological order:
+Math101, CS101, Math201, CS201, Math301
+(Many others valid too!)</div>
+
+        <div class="tip">In exams: if asked to find "a" topological sort, find any valid one. If asked for "all", list all possibilities respecting dependencies.</div>
+
+        <h3>Relation to Partial Orders</h3>
+        <p>Topological sort converts a partial order into a total order (linear sequence) compatible with the partial order.</p>
+        
+        <div class="tip">⚡ From Hasse diagram to topological sort: start from bottom (minimal elements), work upward, respecting all edges!</div>
+    </div>
+
+    <!-- FINAL SUMMARY PAGE -->
+    <div class="sheet">
+        <h2>🎯 Quick Revision Summary</h2>
+        
+        <h3>Set Theory Essentials</h3>
+        <ul>
+            <li>Power set: |P(A)| = 2^|A|</li>
+            <li>Cartesian product: |A × B| = |A| × |B|</li>
+            <li>De Morgan's: (A ∪ B)' = A' ∩ B', (A ∩ B)' = A' ∪ B'</li>
+            <li>Inclusion-exclusion: |A ∪ B| = |A| + |B| − |A ∩ B|</li>
+        </ul>
+
+        <h3>Function Types Recognition</h3>
+        <ul>
+            <li><strong>Injective:</strong> Different inputs → different outputs (one-to-one)</li>
+            <li><strong>Surjective:</strong> All codomain covered (onto)</li>
+            <li><strong>Bijective:</strong> Both injective and surjective (invertible!)</li>
+        </ul>
+
+        <h3>Relation Properties Checklist</h3>
+        <ul>
+            <li><strong>Reflexive:</strong> (a,a) for all a</li>
+            <li><strong>Symmetric:</strong> (a,b) → (b,a)</li>
+            <li><strong>Antisymmetric:</strong> (a,b) and (b,a) → a=b</li>
+            <li><strong>Transitive:</strong> (a,b) and (b,c) → (a,c)</li>
+        </ul>
+
+        <h3>Key Combinations</h3>
+        <ul>
+            <li><strong>Equivalence:</strong> Reflexive + Symmetric + Transitive</li>
+            <li><strong>Partial Order:</strong> Reflexive + Antisymmetric + Transitive</li>
+            <li><strong>Total Order:</strong> Partial order + all pairs comparable</li>
+        </ul>
+
+        <h3>Visual Tools</h3>
+        <ul>
+            <li><strong>Venn diagrams:</strong> Set operations</li>
+            <li><strong>Matrices:</strong> Relation properties</li>
+            <li><strong>Digraphs:</strong> Relation structure</li>
+            <li><strong>Hasse diagrams:</strong> Partial orders (remove redundancy)</li>
+        </ul>
+
+        <div class="tip">
+⚡ Exam Strategy:<br>
+1. For sets: draw Venn diagrams<br>
+2. For functions: check injective & surjective separately<br>
+3. For relations: verify all 4 properties systematically<br>
+4. For posets: draw Hasse diagram first<br>
+5. For topological sort: check for cycles, then start with in-degree 0
+        </div>
+
+        <div class="trap">
+Common Mistakes to Avoid:<br>
+✗ Confusing ∈ with ⊆<br>
+✗ Thinking antisymmetric = not symmetric<br>
+✗ Forgetting range ≠ codomain<br>
+✗ Mixing up composition order (g ∘ f means f first!)<br>
+✗ Claiming maximal = maximum
+        </div>
+
+        <h3>Formulas Worth Memorizing</h3>
+        <div class="formula">
+|P(A)| = 2^|A|<br>
+|A × B| = |A| × |B|<br>
+|A ∪ B| = |A| + |B| − |A ∩ B|<br>
+(g ∘ f)⁻¹ = f⁻¹ ∘ g⁻¹
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; font-size: 24px; color: #16213e;">
+        <strong>You've got this! 💪</strong><br>
+        <span style="font-size: 18px;">Practice these concepts, draw diagrams, and trust your understanding.</span>
+        </p>
+    </div>
+
+</body>
+</html>
