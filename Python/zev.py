@@ -65,7 +65,7 @@ def fizzbuzz(num):
 
     return
 
-fizzbuzz(100)
+# fizzbuzz(100)
 
 # //////////////////////////////////
 #  2nd way : Language Mastery

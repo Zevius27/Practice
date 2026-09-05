@@ -1,7 +1,7 @@
 # //////////////////////////////////////
 # Mis 1 : wrong order
 # //////////////////////////////////
-
+"""
 def fizzbuzz(num):
     for i in range(1, num):
         if num % 3 == 0:
@@ -11,7 +11,7 @@ def fizzbuzz(num):
         if num % 3 == 0 & num % 5 == 0:
             print("FizzBuzz")
     return
-
+"""
 # /////////////////////////////////////////////////////////////////
 #  Fix : Order = Hasses : FizzBuzz -> Fizz -> Buzz -> Success
 # /////////////////////////////////////////////////////////////
@@ -40,7 +40,7 @@ def fizzbuzz(num):
 # Mis 2 : UnNeeded Code : 1. Removed break statements , 1. Added + 1 to num
 # //////////////////////////////////////////////////////////////////////////
 
-
+"""
 def fizzbuzz1(num):
     for i in range(1, num + 1):
         if num % 3 == 0 & num % 5 == 0:
@@ -54,8 +54,8 @@ def fizzbuzz1(num):
 
     return
 
-
-fizzbuzz1(5)
+"""
+# fizzbuzz1(5)
 
 # ///////////////////////////////////////////////////////////////////////////////////////
 # ///////////////////////////////////////////////////////////////////////////////
@@ -63,7 +63,7 @@ fizzbuzz1(5)
 # ////////////////////////////////////////////////////////////////////////////
 # /////////////////////////////////////////////////////////////////////////////////
 
-
+"""
 def fizzbuzz(num):
     for i in range(1, num + 1):
         if num % 3 == 0 & num % 5 == 0:
@@ -79,7 +79,7 @@ def fizzbuzz(num):
             continue
 
     return
-
+"""
 
 # ///////////////////////////////////////////////////////////////////////////////
 #  MIS 4 FUNDAMENTAL MIS : Used & instead of Logical Operator "and".
@@ -101,3 +101,7 @@ def fizzbuzz(num):
             continue
 
     return
+
+fizzbuzz(100)
+
+
