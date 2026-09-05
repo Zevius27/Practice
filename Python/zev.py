@@ -135,3 +135,7 @@ def FizzBuzz_1(num):
         (lambda x, y=5: x % y == 0)(print("Buzz"))
         (lambda x, y=5, z=3: x % y == 0 & x % z == 0)(print("FizzBuzz"))
     return
+
+
+FizzBuzz_1(5)
+
