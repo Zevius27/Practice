@@ -127,10 +127,10 @@ def fizzbuzz(num):
 #  Hasses's 2nd way : funtion -> lambda condions * 3 -> Fizz , Buzz , FizzBuzz
 # /////////////////////////////////////////////////////////////////////////////
 
-#  INCOMPLETE
+#  INCOMPLETE : Create Tests for these so that we can move forward faster
 def FizzBuzz_1(num):
     fizzbuzz = []
-    for i in range(num):
+    for x in range(num):
         (lambda x, y=3: x % y == 0)(print("Fizz"))
         (lambda x, y=5: x % y == 0)(print("Buzz"))
         (lambda x, y=5, z=3: x % y == 0 & x % z == 0)(print("FizzBuzz"))
